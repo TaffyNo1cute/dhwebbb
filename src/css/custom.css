@@ -1,0 +1,76 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #3f51b5;
+  --ifm-color-primary-dark: #3949a3;
+  --ifm-color-primary-darker: #364499;
+  --ifm-color-primary-darkest: #2d387e;
+  --ifm-color-primary-light: #4e5fc7;
+  --ifm-color-primary-lighter: #5768d1;
+  --ifm-color-primary-lightest: #7283dc;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #7986cb;
+  --ifm-color-primary-dark: #5c6bc0;
+  --ifm-color-primary-darker: #5261c2;
+  --ifm-color-primary-darkest: #3949a3;
+  --ifm-color-primary-light: #9fa8da;
+  --ifm-color-primary-lighter: #a9b2dd;
+  --ifm-color-primary-lightest: #c5cae9;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* 自定义样式 */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* 标签样式优化 */
+.tag {
+  margin: 0.25rem;
+}
+
+/* 博客文章卡片样式 */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 标签索引页按拼音首字母分类样式 */
+.blogTagsListPage h2 {
+  color: var(--ifm-color-primary);
+  font-size: 2rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--ifm-color-emphasis-200);
+}
+
+.blogTagsListPage h2:first-of-type {
+  border-top: none;
+  margin-top: 0;
+}
+
+.blogTagsListPage .tag {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.blogTagsListPage hr {
+  border-color: var(--ifm-color-emphasis-300);
+}

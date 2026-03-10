@@ -1,0 +1,332 @@
+.filterContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 1.1rem;
+}
+
+/* 已选标签区域 */
+.selectedTagsContainer {
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 2px solid var(--ifm-color-primary);
+}
+
+.selectedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.selectedHeader strong {
+  font-size: 1.1rem;
+  color: var(--ifm-color-primary);
+}
+
+.clearButton {
+  background: var(--ifm-color-danger);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.clearButton:hover {
+  background: var(--ifm-color-danger-dark);
+}
+
+.selectedTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.selectedTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.25rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.removeButton:hover {
+  color: var(--ifm-color-warning);
+}
+
+/* 标签列表区域 */
+.tagsSection {
+  margin-bottom: 3rem;
+}
+
+/* 手动搜索区域 */
+.searchSection {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: var(--ifm-color-emphasis-50);
+  border-radius: 8px;
+  border: 2px dashed var(--ifm-color-primary-light);
+}
+
+.searchSection h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.searchBox {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 250px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.searchInput:focus {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--ifm-color-primary-rgb), 0.1);
+}
+
+.addButton {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  white-space: nowrap;
+}
+
+.addButton:hover:not(:disabled) {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.addButton:disabled {
+  background: var(--ifm-color-emphasis-400);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.tagsSection h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.hint {
+  color: var(--ifm-color-emphasis-600);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.tagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.noTags {
+  text-align: center;
+  padding: 2rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.noTags p {
+  margin: 0.5rem 0;
+}
+
+.tagButton {
+  background: var(--ifm-color-emphasis-200);
+  border: 2px solid transparent;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tagButton:hover {
+  background: var(--ifm-color-emphasis-300);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tagButtonSelected {
+  background: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary-dark);
+  font-weight: 600;
+}
+
+.tagButtonSelected:hover {
+  background: var(--ifm-color-primary-dark);
+}
+
+.tagCount {
+  opacity: 0.7;
+  font-size: 0.9em;
+}
+
+/* 筛选结果区域 */
+.resultsSection h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.noResults {
+  text-align: center;
+  padding: 3rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+}
+
+.noResults p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.postsList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.postCard {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+
+.postCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.postCard h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.postCard h3 a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.postCard h3 a:hover {
+  text-decoration: underline;
+}
+
+.postMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.separator {
+  opacity: 0.5;
+}
+
+.postDescription {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.postTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.postTag {
+  background: var(--ifm-color-emphasis-200);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .filterContainer {
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .selectedHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .tagButton {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .postCard h3 {
+    font-size: 1.3rem;
+  }
+}

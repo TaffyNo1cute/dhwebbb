@@ -1,0 +1,246 @@
+/* --- 1. 全局容器：把背景图挪到这里 --- */
+.mainContainer {
+  scroll-behavior: smooth;
+  font-family: var(--ifm-font-family-base);
+  /* 核心修改：让背景图作为整个页面的底图 */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* 固定背景，产生视差效果 */
+  background-color: #000;
+}
+
+/* --- 2. 第一屏：删掉背景图，只留遮罩 --- */
+.heroSection {
+  height: 100vh;
+  /* 这里不再单独设背景图，因为它会透出 mainContainer 的图 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 渐变遮罩：让第一屏的文字更清晰 */
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+}
+
+/* --- 3. 后续章节：改成半透明蒙层 --- */
+/* 这样图片就不会被“切断”，而是若隐若现地藏在文字下面 */
+.articleSection {
+  padding: 8rem 0;
+  background-color: rgba(15, 23, 42, 0.85); /* 使用 rgba，0.85 是不透明度 */
+  backdrop-filter: blur(8px); /* 增加毛玻璃效果，这是“高级感”的灵魂 */
+  min-height: 100vh;
+}
+
+.practiceSection {
+  padding: 4rem 0 8rem 0;
+  background-color: rgba(15, 23, 42, 0.9); /* 法律援助板块可以稍微深一点，显得专业 */
+  backdrop-filter: blur(8px);
+}
+
+/* 页脚也给它一点透明度 */
+.footerSection {
+  padding: 3rem 0;
+  background-color: rgba(11, 17, 32, 0.95);
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* --- 以下代码保持不变（打字机、卡片、动画等） --- */
+.heroContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #ffffff;
+}
+/* ... 后面你原来的那些动画代码继续留着即可 ... */
+
+.typewriterWrapper {
+  display: inline-block;
+}
+
+.typewriterTitle {
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: 8px;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 20px rgba(255,255,255,0.3);
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid #fff;
+  width: 0;
+  animation: typing 1.5s steps(4) forwards, blink 0.8s infinite;
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 6px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards 1.8s;
+}
+
+.scrollIndicator {
+  margin-top: 6rem;
+  font-size: 1rem;
+  opacity: 0;
+  letter-spacing: 2px;
+  animation: fadeUp 1s ease forwards 2.5s, pulse 2s infinite ease-in-out 2.5s;
+}
+
+.arrow {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.articleSection {
+  padding: 8rem 0;
+  background-color: #0f172a;
+  min-height: 100vh;
+}
+
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 5rem;
+  color: #f8fafc;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.articleGrid {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  text-decoration: none !important;
+  color: #f1f5f9;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.02);
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.1);
+}
+
+.glowEffect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  transition: all 0.7s ease;
+}
+
+.card:hover .glowEffect {
+  left: 200%;
+}
+
+.cardIcon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .cardIcon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.card p {
+  color: #94a3b8;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.animateHidden {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animateVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes typing {
+  0% { width: 0; }
+  100% { width: 4.2em; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #fff; }
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(12px); opacity: 1; }
+}
+.footerSection {
+  padding: 3rem 0;
+  background-color: #0b1120;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footerContent {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.footerContent p {
+  margin: 0;
+}
+.publisherRole {
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  color: #475569;
+  margin-bottom: 1rem;
+}

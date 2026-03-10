@@ -1,0 +1,208 @@
+﻿/* src/css/university-library.module.css */
+
+/* === 全局容器与背景 === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 80vh;
+}
+
+[data-theme='dark'] .container {
+  background-image: radial-gradient(#374151 1px, transparent 1px);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary), #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.header p {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 1rem;
+}
+
+.breadcrumbs {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-700);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.backButton {
+  background: var(--ifm-color-emphasis-200);
+  border: none;
+  color: var(--ifm-color-emphasis-800);
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.backButton:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  transform: translateX(-3px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.card {
+  background: var(--ifm-card-background-color);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  text-decoration: none !important;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary);
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.provinceName {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--ifm-color-emphasis-900);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.provinceName::after {
+  content: '';
+  font-size: 1.2rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s;
+  color: var(--ifm-color-primary);
+}
+
+.card:hover .provinceName::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.provinceDesc {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.uniName {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.uniDesc {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);
+  line-height: 1.4;
+}
+
+.actionText {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.emptyState {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 1600px) {
+  .grid { grid-template-columns: repeat(6, 1fr); gap: 1.2rem; }
+}
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .grid { grid-template-columns: repeat(5, 1fr); gap: 1.1rem; }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .grid { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .container { padding: 1.5rem 1rem; }
+  .header h1 { font-size: 1.8rem; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .card { padding: 1.2rem; border-radius: 12px; min-height: 100px; }
+  .provinceName { font-size: 1.1rem; }
+  .provinceName::after { display: none; }
+  .provinceDesc { font-size: 0.75rem; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+  .uniName { font-size: 1.05rem; }
+  .uniDesc { font-size: 0.75rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .actionText { display: none; }
+}
+
+@media (max-width: 479px) {
+  .container { padding: 1.5rem 1rem; }
+  .header h1 { font-size: 1.8rem; }
+  .grid { grid-template-columns: 1fr; gap: 0.8rem; }
+  .card { padding: 1rem; border-radius: 12px; min-height: 90px; }
+  .provinceName { font-size: 1.1rem; }
+  .provinceName::after { display: none; }
+  .provinceDesc { font-size: 0.75rem; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+  .uniName { font-size: 1rem; }
+  .uniDesc { font-size: 0.75rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .actionText { display: none; }
+}
